@@ -103,6 +103,23 @@
 	user-select: none;
 }
 
+// --------------------------- hide text --------------------------------------
+// @see https://github.com/h5bp/html5-boilerplate/commit/adecc5da035d6d76b77e3fa95c6abde841073da2
+.hide-text() {
+	background-color: transparent;
+	border: 0 none;
+	overflow: hidden;
+	*text-indent: -9999px; // IE6, IE7
+
+	&:before {
+		content: '';
+		display: block;
+		width: 0;
+		height: 150%;
+	}
+
+}
+
 // --------------------------- inline-block -----------------------------------
 // @see https://developer.mozilla.org/en/CSS/display
 .inline-block() {
