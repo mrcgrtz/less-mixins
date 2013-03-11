@@ -209,8 +209,10 @@
 // --------------------------- rotations --------------------------------------
 // @see https://developer.mozilla.org/en/CSS/transform
 .rotated(@deg: 5deg) {
-	@radians: ~`parseInt("@{deg}".replace('deg','')) * Math.PI / 180`;
 	.transform(rotate(@deg));
+
+	// IE Matrix filter
+	@radians: ~`parseInt("@{deg}".replace('deg','')) * Math.PI / 180`;
 	filter: ~`"progid:DXImageTransform.Microsoft.Matrix(M11=" + Math.cos("@{radians}") + ", M12=" + (-1 * Math.sin("@{radians}")) + ",M21=" + Math.sin("@{radians}") + ", M22=" + Math.cos("@{radians}") + ", sizingMethod='auto expand')"`;
 	zoom: 1; // trigger “hasLayout” in IE6 and IE7
 }
